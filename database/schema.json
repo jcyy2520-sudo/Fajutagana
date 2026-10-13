@@ -1,0 +1,1943 @@
+[
+  {
+    "model": "User",
+    "table": "Users",
+    "ownership": "shared-boundary",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "email",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "password",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "role",
+        "type": "ENUM('admin', 'cashier', 'kitchen', 'inventory')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "status",
+        "type": "ENUM('pending', 'approved', 'rejected', 'inactive')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "assignedCategories",
+        "type": "JSON",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "MenuCategory",
+    "table": "menu_categories",
+    "ownership": "shared-boundary",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "description",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "icon",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "itemCount",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "status",
+        "type": "ENUM('active', 'inactive')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "MenuItem",
+    "table": "menu_items",
+    "ownership": "shared-boundary",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "categoryId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "menu_categories",
+          "key": "id"
+        }
+      },
+      {
+        "name": "price",
+        "type": "DECIMAL(10,2)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "description",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "hasSize",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "sizes",
+        "type": "JSON",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "hasFlavor",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "flavors",
+        "type": "JSON",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "hasTemperature",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "temperatures",
+        "type": "JSON",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "status",
+        "type": "ENUM('available', 'unavailable')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "inventoryMode",
+        "type": "ENUM('prepared', 'recipe')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reservedStock",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reorderLevel",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "trackStock",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "stock",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "defaultStock",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "lastStockReset",
+        "type": "DATE",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "archived",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "Order",
+    "table": "Orders",
+    "ownership": "shared-boundary",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "clientRequestId",
+        "type": "VARCHAR(128)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "orderNumber",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "cashierId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Users",
+          "key": "id"
+        }
+      },
+      {
+        "name": "preparedById",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Users",
+          "key": "id"
+        }
+      },
+      {
+        "name": "customerName",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "subtotal",
+        "type": "DECIMAL(10,2)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "discount",
+        "type": "DECIMAL(10,2)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "total",
+        "type": "DECIMAL(10,2)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "status",
+        "type": "ENUM('pending', 'preparing', 'ready', 'completed', 'cancelled')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "completedAt",
+        "type": "DATETIME",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "orderType",
+        "type": "ENUM('dine-in', 'take-out', 'delivery')",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "tableNumber",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "deliveryAddress",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "OrderItem",
+    "table": "OrderItems",
+    "ownership": "shared-boundary",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "orderId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Orders",
+          "key": "id"
+        }
+      },
+      {
+        "name": "menuItemId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "menu_items",
+          "key": "id"
+        }
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "price",
+        "type": "DECIMAL(10,2)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "quantity",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "total",
+        "type": "DECIMAL(10,2)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "modifiers",
+        "type": "JSON",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "Payment",
+    "table": "Payments",
+    "ownership": "shared-boundary",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "orderId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Orders",
+          "key": "id"
+        }
+      },
+      {
+        "name": "method",
+        "type": "ENUM('cash', 'card', 'digital')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "amount",
+        "type": "DECIMAL(10,2)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "amountReceived",
+        "type": "DECIMAL(10,2)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "change",
+        "type": "DECIMAL(10,2)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "status",
+        "type": "ENUM('completed', 'failed')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "Log",
+    "table": "Logs",
+    "ownership": "shared-boundary",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "userName",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "action",
+        "type": "ENUM('CREATE_ORDER', 'UPDATE_ORDER', 'DELETE_ORDER', 'CREATE_EMPLOYEE', 'UPDATE_EMPLOYEE', 'DELETE_EMPLOYEE', 'CREATE_MENU_ITEM', 'UPDATE_MENU_ITEM', 'DELETE_MENU_ITEM', 'CREATE_MENU_CATEGORY', 'UPDATE_MENU_CATEGORY', 'DELETE_MENU_CATEGORY', 'LOGIN', 'LOGOUT', 'UPDATE_PASSWORD', 'UPDATE_PROFILE', 'ASSIGN_STATION', 'ASSIGN_CATEGORIES', 'OTHER')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "module",
+        "type": "VARCHAR(255)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "entityId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "entityType",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "description",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "changes",
+        "type": "JSON",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "ipAddress",
+        "type": "VARCHAR(255)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "status",
+        "type": "ENUM('success', 'failed', 'pending')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "errorMessage",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "userId"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "logs_user_id"
+      },
+      {
+        "fields": [
+          "action"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "logs_action"
+      },
+      {
+        "fields": [
+          "module"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "logs_module"
+      },
+      {
+        "fields": [
+          "entityType",
+          "entityId"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "logs_entity_type_entity_id"
+      },
+      {
+        "fields": [
+          "createdAt"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "logs_created_at"
+      }
+    ]
+  },
+  {
+    "model": "InventorySettings",
+    "table": "inventory_settings",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "expiryWarningDays",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "refreshSeconds",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "defaultPreparedReorderLevel",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "countApproval",
+        "type": "ENUM('item_limits', 'admin_review')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "version",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "Supplier",
+    "table": "inventory_suppliers",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR(160)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "contact",
+        "type": "VARCHAR(160)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "email",
+        "type": "VARCHAR(254)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "phone",
+        "type": "VARCHAR(40)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "active",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "StockItem",
+    "table": "inventory_items",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "code",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "name",
+        "type": "VARCHAR(160)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "kind",
+        "type": "ENUM('ingredient', 'packaging')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "unit",
+        "type": "ENUM('pcs', 'g', 'ml')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "purchaseUnit",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "unitsPerPurchase",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "onHand",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reserved",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reorderLevel",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "adjustmentLimit",
+        "type": "DECIMAL(14,4)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "location",
+        "type": "VARCHAR(120)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "supplierId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_suppliers",
+          "key": "id"
+        }
+      },
+      {
+        "name": "archived",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "version",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "StockBatch",
+    "table": "inventory_batches",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "stockItemId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_items",
+          "key": "id"
+        }
+      },
+      {
+        "name": "code",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "onHand",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reserved",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "unitCost",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "expiryDate",
+        "type": "DATE",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "quarantined",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "receivedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "stockItemId",
+          "expiryDate"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "inventory_batches_stock_item_id_expiry_date"
+      }
+    ]
+  },
+  {
+    "model": "StockReceipt",
+    "table": "inventory_receipts",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "number",
+        "type": "VARCHAR(80)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "supplierId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_suppliers",
+          "key": "id"
+        }
+      },
+      {
+        "name": "reference",
+        "type": "VARCHAR(120)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "notes",
+        "type": "TEXT",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "receivedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Users",
+          "key": "id"
+        }
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "StockReceiptLine",
+    "table": "inventory_receipt_lines",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "receiptId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_receipts",
+          "key": "id"
+        }
+      },
+      {
+        "name": "stockItemId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_items",
+          "key": "id"
+        }
+      },
+      {
+        "name": "batchId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_batches",
+          "key": "id"
+        }
+      },
+      {
+        "name": "purchaseQuantity",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "purchaseUnit",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "conversion",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "quantity",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "unitCost",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "StockMovement",
+    "table": "inventory_movements",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "stockItemId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_items",
+          "key": "id"
+        }
+      },
+      {
+        "name": "menuItemId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "menu_items",
+          "key": "id"
+        }
+      },
+      {
+        "name": "batchId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_batches",
+          "key": "id"
+        }
+      },
+      {
+        "name": "action",
+        "type": "ENUM('opening', 'receive', 'reserve', 'consume', 'release', 'waste', 'count', 'supplier_return', 'reversal', 'hold', 'unhold')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "quantity",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "onHandDelta",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reservedDelta",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "onHandBefore",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "onHandAfter",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reservedBefore",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reservedAfter",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "unit",
+        "type": "VARCHAR(8)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reason",
+        "type": "TEXT",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Users",
+          "key": "id"
+        }
+      },
+      {
+        "name": "orderId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Orders",
+          "key": "id"
+        }
+      },
+      {
+        "name": "receiptId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reversesId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "operationKey",
+        "type": "VARCHAR(191)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": [
+      {
+        "fields": [
+          "stockItemId",
+          "createdAt"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "inventory_movements_stock_item_id_created_at"
+      },
+      {
+        "fields": [
+          "orderId"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "inventory_movements_order_id"
+      }
+    ]
+  },
+  {
+    "model": "MenuRecipe",
+    "table": "inventory_recipes",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "menuItemId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "menu_items",
+          "key": "id"
+        }
+      },
+      {
+        "name": "label",
+        "type": "VARCHAR(120)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "profileKey",
+        "type": "VARCHAR(191)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "size",
+        "type": "VARCHAR(80)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "flavor",
+        "type": "VARCHAR(80)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "temperature",
+        "type": "VARCHAR(40)",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "components",
+        "type": "JSON",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "version",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "current",
+        "type": "TINYINT(1)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": [
+      {
+        "unique": true,
+        "fields": [
+          "menuItemId",
+          "profileKey",
+          "version"
+        ],
+        "type": "",
+        "parser": null,
+        "name": "inventory_recipes_menu_item_id_profile_key_version"
+      }
+    ]
+  },
+  {
+    "model": "StockAllocation",
+    "table": "inventory_order_allocations",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "orderId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true,
+        "references": {
+          "model": "Orders",
+          "key": "id"
+        }
+      },
+      {
+        "name": "state",
+        "type": "ENUM('reserved', 'consumed', 'released', 'wasted')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "prepared",
+        "type": "JSON",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "supplies",
+        "type": "JSON",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "recipes",
+        "type": "JSON",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "StockCount",
+    "table": "inventory_counts",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "stockItemId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_items",
+          "key": "id"
+        }
+      },
+      {
+        "name": "batchId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_batches",
+          "key": "id"
+        }
+      },
+      {
+        "name": "expectedVersion",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "previousQuantity",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "countedQuantity",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "difference",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reason",
+        "type": "TEXT",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "status",
+        "type": "ENUM('pending', 'applied', 'rejected', 'stale')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Users",
+          "key": "id"
+        }
+      },
+      {
+        "name": "reviewedById",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reviewedAt",
+        "type": "DATETIME",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "WasteReport",
+    "table": "inventory_waste_reports",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "stockItemId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_items",
+          "key": "id"
+        }
+      },
+      {
+        "name": "batchId",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "inventory_batches",
+          "key": "id"
+        }
+      },
+      {
+        "name": "quantity",
+        "type": "DECIMAL(14,4)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reason",
+        "type": "TEXT",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "status",
+        "type": "ENUM('pending', 'accepted', 'rejected')",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false,
+        "references": {
+          "model": "Users",
+          "key": "id"
+        }
+      },
+      {
+        "name": "reviewedById",
+        "type": "INTEGER",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "reviewedAt",
+        "type": "DATETIME",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  },
+  {
+    "model": "InventoryOperation",
+    "table": "inventory_operations",
+    "ownership": "inventory",
+    "columns": [
+      {
+        "name": "id",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": true,
+        "unique": false
+      },
+      {
+        "name": "requestId",
+        "type": "VARCHAR(128)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": true
+      },
+      {
+        "name": "kind",
+        "type": "VARCHAR(40)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "fingerprint",
+        "type": "VARCHAR(64)",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "userId",
+        "type": "INTEGER",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "result",
+        "type": "JSON",
+        "nullable": true,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "createdAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      },
+      {
+        "name": "updatedAt",
+        "type": "DATETIME",
+        "nullable": false,
+        "primaryKey": false,
+        "unique": false
+      }
+    ],
+    "indexes": []
+  }
+]

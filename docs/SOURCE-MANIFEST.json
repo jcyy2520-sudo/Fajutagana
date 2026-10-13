@@ -1,0 +1,220 @@
+{
+  "sourceRepository": "https://github.com/alamid-xii/japz_mobile_pos",
+  "sourceCommit": "0f912e9ed18fb49eeb8a4b0a8ab16ba50a7f2cda",
+  "copiedFiles": [
+    {
+      "path": "japz-web/src/features/inventory/CountsLosses.tsx",
+      "sha256": "b1d7c01a1546a1165300ac00e88aa665d94121b55bac67c69a1993a672441865"
+    },
+    {
+      "path": "japz-web/src/features/inventory/data.ts",
+      "sha256": "757de6009f592a188b87d2d6b20483b49e4e450e1e1ebee94df562e6f9084456"
+    },
+    {
+      "path": "japz-web/src/features/inventory/Guide.tsx",
+      "sha256": "1374e20bae2d744d2f07e3dacedb5a1418e767635884ef838f33fcb990f13d88"
+    },
+    {
+      "path": "japz-web/src/features/inventory/HistoryReports.tsx",
+      "sha256": "245abf325ee485fb69919d84701765a83dd35ebbf1f07c1cb1ab4b0c37ac1491"
+    },
+    {
+      "path": "japz-web/src/features/inventory/inventory.css",
+      "sha256": "c2f489090d0284bbded0ea13ff3971e7f64bc1a4870e5a6b908881fb40092267"
+    },
+    {
+      "path": "japz-web/src/features/inventory/InventoryData.tsx",
+      "sha256": "7ee9d2c1b913290f0419f24b3cee777e390013aa61fff89133fbcbda87afc463"
+    },
+    {
+      "path": "japz-web/src/features/inventory/KitchenWaste.tsx",
+      "sha256": "fd4229f1e4abb91954a16fe0ec32694551f05ccfd48161cf0b5023577aa2fb61"
+    },
+    {
+      "path": "japz-web/src/features/inventory/MenuStock.tsx",
+      "sha256": "4002a522f260da24511ee163db88a3b50df7d9f6b5c343ad927e7f15d86b2bc9"
+    },
+    {
+      "path": "japz-web/src/features/inventory/Overview.tsx",
+      "sha256": "faf035a9099fb7c93883ed4d41236f3f2073f97af5f707dce170bb508b79e730"
+    },
+    {
+      "path": "japz-web/src/features/inventory/pagination.ts",
+      "sha256": "e666fd32ff2f5bb3e4045d9cae63035d483cd67ce086da0ac800a1404309e70e"
+    },
+    {
+      "path": "japz-web/src/features/inventory/Profile.tsx",
+      "sha256": "b179753b6af75b409673a0e372144070e53bcb6b934d781cedcb5a7df92e7fea"
+    },
+    {
+      "path": "japz-web/src/features/inventory/Receiving.tsx",
+      "sha256": "9fb8e91729e57e0b00aa1e28957775f5bc9b15b20ef27931af16dc5abd8e9958"
+    },
+    {
+      "path": "japz-web/src/features/inventory/Settings.tsx",
+      "sha256": "88aa94b14c15b883ea3a83627a1b29d83dc637bc9b963e75b9c81329797156d8"
+    },
+    {
+      "path": "japz-web/src/features/inventory/shared.tsx",
+      "sha256": "7604bbf0cd81d9a763a6386ac306e623215260d6e1907615751beaf1ef82d2ff"
+    },
+    {
+      "path": "japz-web/src/features/inventory/Suppliers.tsx",
+      "sha256": "44282961c2f2ff2f145550bb8a0c777c4c455c85d7c5eda718499b09267ac7f2"
+    },
+    {
+      "path": "japz-web/src/features/inventory/Supplies.tsx",
+      "sha256": "f38f6f4a92e12cfb412e9dd521e6baf125188d53a26d01f4ef1a7a4757fee4c8"
+    },
+    {
+      "path": "japz-web/src/features/inventory/types.ts",
+      "sha256": "2fd5143dd00c00be82405a5dc22699d51bb1312fe791c777d0a87cdf33eec8b8"
+    },
+    {
+      "path": "japz-backend/services/inventoryService.js",
+      "sha256": "d0ee92ea28e521b33d3d5527a2224ce47bf7306dc0ad9ca11d0e6a9677c7aee9"
+    },
+    {
+      "path": "japz-backend/services/inventoryOrders.js",
+      "sha256": "e7b446a659de657e69263ebec5814781eb4aaab5424e017d280bdab416017fab"
+    },
+    {
+      "path": "japz-backend/services/inventorySchema.js",
+      "sha256": "48319311b26ca3d5af486685c68d70540f1d67db7364cddd1364b05899dffc85"
+    },
+    {
+      "path": "japz-backend/services/inventorySettings.js",
+      "sha256": "f21417d8487ead59b71dd234c5bf1ae7861483e7dd10daccf2f4b3dc212b7e02"
+    },
+    {
+      "path": "japz-backend/services/menuAvailability.js",
+      "sha256": "ed11c6918bac767b0ba10a884182a5d3fd3e6e1ceef291d3fc69b22fcbe2eafa"
+    },
+    {
+      "path": "japz-backend/models/inventoryModels.js",
+      "sha256": "b96ddf72dc7d406ac221cffc35c4663c0105e1304e49e8b1c5a24a558f9fd09d"
+    },
+    {
+      "path": "japz-backend/models/userModel.js",
+      "sha256": "0eabface9deae5fc1c2d21b6f3a0e16c62a39ad8def4d93d2738a000bf1134fc"
+    },
+    {
+      "path": "japz-backend/models/menuItemModel.js",
+      "sha256": "8f89c21d6c5bae4ede4b40bd5ad827cc69b5b3c2071302caa435dfb33b3d1b26"
+    },
+    {
+      "path": "japz-backend/models/menuCategoryModel.js",
+      "sha256": "19c816fd40506a41ed0f6c1d6e67078752cbb0f604316d183a7590078fc7d50c"
+    },
+    {
+      "path": "japz-backend/models/orderModel.js",
+      "sha256": "25a4220ce3120529dca653f16cca7a3cc0797bbecbee13b6499f95edb1af0385"
+    },
+    {
+      "path": "japz-backend/models/orderItemModel.js",
+      "sha256": "c78b92ed6f23f1f2ef6b57b46e4d58c821c608c4a1fd896fdaed963a38b5bdf8"
+    },
+    {
+      "path": "japz-backend/models/paymentModel.js",
+      "sha256": "35b34ee104fc9300c384c430c03d66f5c071bed3facc3f1409963afa3f1e67e5"
+    },
+    {
+      "path": "japz-backend/models/logModel.js",
+      "sha256": "9c3af9f5bbb762352dd1ce98e44c871611930fe2773ea7ee66c6b987dcf8d099"
+    },
+    {
+      "path": "japz-backend/routes/inventory.js",
+      "sha256": "d05c6524f0d1b0323dc61c967e38dc575be18489361467ba01e98a9065bd4c0b"
+    },
+    {
+      "path": "japz-backend/middleware/access.js",
+      "sha256": "d5bc0eab82b41602d83bdc619895808d55d630957a6a297658832a780d4067e0"
+    },
+    {
+      "path": "japz-backend/scripts/create-inventory-user.js",
+      "sha256": "2be47cc4e299f5f12f346bad113857281033c15999e1202a1db377ae39a00753"
+    },
+    {
+      "path": "japz-web/src/utils/requestId.ts",
+      "sha256": "91e3589248a2f4ab8633071e136d7071ca32abbee3724e5e69ba5d6e179f1b2a"
+    },
+    {
+      "path": "japz-web/src/main.tsx",
+      "sha256": "d91b4edf34241487f7ada4a125b9cbde3928ec2a69ac6e947d1c85625a90d9ab"
+    },
+    {
+      "path": "japz-web/tsconfig.json",
+      "sha256": "ad28d132ee48d6e23917cf5827cace785d0fc01a44ca68b0dda51cc8c3fd3f52"
+    },
+    {
+      "path": "japz-web/tsconfig.app.json",
+      "sha256": "185c585aa92b2cbe0df1918e999d9a6bc4fec6762a6d80de7d2d155d56369aed"
+    },
+    {
+      "path": "japz-web/tsconfig.node.json",
+      "sha256": "a6d49d645590cac21c235a0548605d867321b2e1750e99176d2153d702dfa842"
+    },
+    {
+      "path": "japz-web/tailwind.config.js",
+      "sha256": "ff5731d1a75f2eb2c9c30f077eda8ec6bb25183cb1e5edc4d727aee9c4f98957"
+    },
+    {
+      "path": "japz-web/postcss.config.js",
+      "sha256": "24ca546ca8918b28c796f2a06e417be70c0877e8de147ba87bc4e88f2ef71136"
+    },
+    {
+      "path": "japz-web/eslint.config.js",
+      "sha256": "74bcb49fec61d75ef30542fbfe41f2498961f72a028a827c2091622b06d6921e"
+    },
+    {
+      "path": "japz-web/public/logo.jpg",
+      "sha256": "e83c084a9ca604c62465f23c064ed29b4b565148a8208bdb2f5f11fd33eb0bea"
+    }
+  ],
+  "adaptedFiles": [
+    {
+      "path": "japz-backend/services/securityConfig.js",
+      "reason": "Retain JWT secret validation; omit unrelated role bootstrap helper."
+    },
+    {
+      "path": "japz-backend/models/db.js",
+      "reason": "Retain connection configuration and license; require certificate verification for hosted TLS in the extracted copy."
+    },
+    {
+      "path": "japz-backend/models/index.js",
+      "reason": "Keep Inventory associations and its user/menu/order/payment/log dependencies; omit unrelated models."
+    },
+    {
+      "path": "japz-backend/utils/logger.js",
+      "reason": "Keep only logging helpers used by shared authentication and order stock endpoints."
+    },
+    {
+      "path": "japz-backend/routes/index.js",
+      "reason": "Extract login/logout/profile, public menu availability, admin menu creation and order stock lifecycle only. No full POS, Kitchen, employee, feedback, sales or promotion APIs."
+    },
+    {
+      "path": "japz-backend/tests/inventory.test.js",
+      "reason": "Omit three cases requiring excluded full-system admin/role/menu-edit APIs, and one sales-summary access assertion. Retain all remaining business assertions."
+    },
+    {
+      "path": "japz-web/src/hooks/useAuth.tsx",
+      "reason": "Retain auth state/login/logout; omit registration method because signup belongs to shared account administration."
+    },
+    {
+      "path": "japz-web/src/services/api.ts",
+      "reason": "Retain HTTP/JWT transport and Inventory login/logout/current-user/profile calls only."
+    },
+    {
+      "path": "japz-web/src/components/ProtectedRoute.tsx",
+      "reason": "Keep Inventory route protection; replace redirects into omitted module dashboards with an access message."
+    },
+    {
+      "path": "japz-web/src/features/inventory/InventoryLayout.tsx",
+      "reason": "Remove navigation back to the omitted full Admin dashboard; Inventory navigation and behavior retained."
+    },
+    {
+      "path": "japz-web/src/App.tsx",
+      "reason": "Standalone entry point mounts only Inventory and its Admin Inventory view."
+    }
+  ]
+}
